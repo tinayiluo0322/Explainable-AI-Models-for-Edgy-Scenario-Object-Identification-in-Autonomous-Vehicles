@@ -59,7 +59,7 @@ This project’s uniqueness lies in its:
 
 ---
 
-### Appendix 1: Summary of XAI Methods for Object Identification  
+## Summary of XAI Methods for Object Identification  
 
 | **XAI Method**       | **Explanation Mechanism**                                                                 | **Application on Object Identification**                                                                                      | **Visual Output**                                                                                                   |
 |-----------------------|-------------------------------------------------------------------------------------------|------------------------------------------------------------------------------------------------------------------------------|---------------------------------------------------------------------------------------------------------------------|
@@ -67,26 +67,11 @@ This project’s uniqueness lies in its:
 | **Grad-CAM**         | Uses gradients of the model's output with respect to the final convolutional layer.       | Identifies important pixel regions contributing to the model's classification.                                               | Heatmap superimposed on the original image, with warm colors indicating important regions.                         |
 | **Anchor**            | Constructs rules (anchors) that specify conditions sufficient for a prediction.           | Identifies the specific parts of an image or conditions that ensure the model's classification remains consistent.           | Highlighted areas (anchors) showing conditions that strongly influenced the model's decision.                      |
 
----
-
-### Appendix 2: Explainability Metrics Benchmark Table  
-
-| **Dataset**       | **Model**  | **XAI Technique**      | **Explainability Analysis Case Study** |
-|--------------------|------------|------------------------|-----------------------------------------|
-| **Edge-Case Data** | ResNet50   | LIME                   | TBD                                     |
-| **Edge-Case Data** | ResNet50   | Grad-CAM               | TBD                                     |
-| **Edge-Case Data** | ResNet50   | Anchor                 | TBD                                     |
-| **Edge-Case Data** | VGG16      | LIME                   | TBD                                     |
-| **Edge-Case Data** | VGG16      | Grad-CAM               | TBD                                     |
-| **Edge-Case Data** | VGG16      | Anchor                 | TBD                                     | 
-
-# Introduction to XAI Method
-
-## LIME
+### LIME
 
 LIME is a technique that explains the predictions of any black-box machine learning model by approximating its behavior locally (near the instance of interest) using a simple interpretable model like linear regression or decision trees. The goal is to explain why a model made a particular prediction for a specific data point, rather than understanding the global behavior of the model. LIME approximates the decision function around the instance of interest using a linear model or some other simple interpretable model.
 
-### Summary of Pros and Cons for LIME
+#### Summary of Pros and Cons for LIME
 
 | **Aspect**              | **Pros**                                                                 | **Cons**                                                                                          |
 |-------------------------|-------------------------------------------------------------------------|---------------------------------------------------------------------------------------------------|
@@ -97,13 +82,13 @@ LIME is a technique that explains the predictions of any black-box machine learn
 | **Local Approximation**  | Approximates the **local decision boundary** around the instance, making it simple | May provide **oversimplified explanations**, missing complex model behavior                        |
 | **Bias**                 | Can work with various data types and models, remaining **intuitive**      | Can be **fooled** or used to **hide biases**, as the explanation may focus on irrelevant features  |
 
-### Lime Image Explainer 
+#### Lime Image Explainer 
 
 [lime 0.1 documentation](https://lime-ml.readthedocs.io/en/latest/lime.html#module-lime.lime_image)
 
 The LIME Image Explainer (Local Interpretable Model-agnostic Explanations) is a technique designed to explain the predictions of black-box models for image classification tasks. It works by perturbing the original image—typically by segmenting the image into superpixels (small regions of similar pixels) and selectively altering these regions to create multiple perturbed versions of the image. The model’s predictions for these perturbed images are then used to train an interpretable local surrogate model, such as a linear classifier, which approximates the model's behavior in the vicinity of the original image. LIME highlights the most important regions of the image that contributed to the model's prediction, providing human-understandable visual explanations for complex models like neural networks. This approach is especially useful for understanding why certain parts of an image strongly influenced the model’s classification decision.
 
-### Summary of Pros and Cons for LIME Image Explainer
+#### Summary of Pros and Cons for LIME Image Explainer
 
 | **Aspect**              | **Pros**                                                                 | **Cons**                                                                                          |
 |-------------------------|-------------------------------------------------------------------------|---------------------------------------------------------------------------------------------------|
@@ -115,11 +100,11 @@ The LIME Image Explainer (Local Interpretable Model-agnostic Explanations) is a 
 | **Bias**                 | Provides **intuitive visual cues** for feature importance in images        | Can be **fooled** or manipulated to highlight **irrelevant regions**, leading to biased explanations |
 
 
-## Grad-CAM 
+### Grad-CAM 
 
 Grad-CAM (Gradient-weighted Class Activation Mapping) is a visualization technique used to interpret the decisions of convolutional neural networks (CNNs), especially in image classification tasks. Unlike methods such as LIME that approximate the model's behavior using surrogate models, Grad-CAM uses the internal gradients of the model to produce a coarse localization map of the important regions in an image that contributed to the model’s prediction. It achieves this by backpropagating the gradients of the target class score with respect to the feature maps of the final convolutional layer. These gradients are then weighted and aggregated to highlight the regions in the image most relevant to the prediction.
 
-### Summary of Pros and Cons for Grad-CAM
+#### Summary of Pros and Cons for Grad-CAM
 
 | **Aspect**              | **Pros**                                                                 | **Cons**                                                                                          |
 |-------------------------|-------------------------------------------------------------------------|---------------------------------------------------------------------------------------------------|
@@ -129,16 +114,16 @@ Grad-CAM (Gradient-weighted Class Activation Mapping) is a visualization techniq
 | **Efficiency**           | Relatively efficient since it reuses gradients from backpropagation.   | Computational cost increases for high-resolution images or deeper networks.                       |
 | **Visual Output**        | Highlights key regions responsible for predictions, aiding decision-making. | May focus on multiple irrelevant regions if gradients are noisy or poorly calibrated.             |
 
-### Grad-CAM in Practice
+#### Grad-CAM in Practice
 
 Grad-CAM is particularly useful for understanding and debugging CNN-based models in critical applications such as healthcare and autonomous vehicles. For example, in medical imaging, Grad-CAM can identify whether the model is focusing on clinically relevant regions, such as the lungs in chest X-rays, when diagnosing pneumonia. Similarly, in autonomous driving, it can highlight important features like road signs or pedestrians. By providing visually interpretable feedback on the model's predictions, Grad-CAM helps build trust in AI systems and enables researchers and practitioners to diagnose issues or refine model performance.
 
 
-## Anchors Explaination
+### Anchors Explaination
 
 Anchors is a type of if-then rule used to explain individual predictions made by machine learning models. Unlike LIME, which approximates complex decision boundaries using local linear models, Anchors provide decision rules that "anchor" the prediction to certain features or conditions. When these conditions hold true, the model’s prediction remains consistent with high probability, even if other features change.
 
-### Summary of Pros and Cons for Anchors
+#### Summary of Pros and Cons for Anchors
 
 | **Aspect**              | **Pros**                                                       | **Cons**                                                                                          |
 |-------------------------|---------------------------------------------------------------|---------------------------------------------------------------------------------------------------|
@@ -147,13 +132,13 @@ Anchors is a type of if-then rule used to explain individual predictions made by
 | **Model Agnosticism**    | Can be used with any model, model agnostic        | Coverage is hard to define and measure in some domains, making it difficult to compare             |
 | **Efficiency**           | Highly efficient search algorithms like beam search           | Imbalanced data can result in biased perturbation spaces unless careful mitigation is used         |
 
-### AnchorImage 
+#### AnchorImage 
 
 [alibi.explainers.anchors.anchor_image module documentation](https://docs.seldon.io/projects/alibi/en/latest/api/alibi.explainers.anchors.anchor_image.html)
 
 The AnchorImage explainer is an extension of the Anchors approach designed specifically for image classification tasks, providing highly interpretable, rule-based explanations for predictions made by complex models such as deep neural networks. Instead of relying on global model behavior or linear approximations, AnchorImage identifies if-then rules that are based on superpixels, or segmented regions of the image. These anchors represent key areas of the image that, when present, strongly influence the model’s prediction. The method generates a set of perturbed images by altering different regions, and it tests whether the model’s prediction remains consistent when the anchor region is unchanged. This allows AnchorImage to provide a highly stable and visual explanation by highlighting the specific areas of the image responsible for the model’s decision, making it an effective tool for understanding predictions in complex models like convolutional neural networks (CNNs).
 
-### Summary of Pros and Cons for AnchorImage Explainer
+#### Summary of Pros and Cons for AnchorImage Explainer
 
 | **Aspect**              | **Pros**                                                                 | **Cons**                                                                                          |
 |-------------------------|-------------------------------------------------------------------------|---------------------------------------------------------------------------------------------------|
@@ -312,4 +297,24 @@ The car in snow experiment highlights the challenges ResNet50 and VGG16 face in 
 
 **Key Insights:**  
 This experiment highlights the reliance of both models on shape-based reasoning in snow-obscured scenes, leading to significant misclassification. Among the XAI methods, Anchor provided the most precise explanations, while LIME exposed the fragmented focus of the models, and Grad-CAM offered minimal differentiation. To improve performance in such scenarios, future models must incorporate better contextual reasoning and environmental awareness, enabling them to distinguish objects in complex, snow-covered environments more accurately.
+
+# Conclusion 
+
+Final Conclusion
+Both ResNet50 and VGG16 correctly identify broken upside-down road sign, broken cars, motor scooters in fog, mostly because the generally shape and key features of the object (text for road sign and car shape and key features for car and motor scooter) is kept untacked and the environment that the image is captured is good and clear under daylight. However, when the shape of the object is significantly covered or distorted (such as pedestrian in rain with umbrella covering the head and half of the car is covered in snow )and when the picture is dark at night or object is hard to recognize in blurry situation (such as car in fog and at night) and when different objects are mixed together in one image (like car and pedestrian together in one image at night or several pedestrian with the street light), both models has significant difficulties in correctly identifying and classifying objects in the image.
+
+XAI method conclusion (Grad-Cam the worst, Anchor the best) Generate a table
+---
+
+### Explainability Metrics Benchmark Table  
+
+| **Dataset**       | **Model**  | **XAI Technique**      | **Explainability Analysis Case Study** |
+|--------------------|------------|------------------------|-----------------------------------------|
+| **Edge-Case Data** | ResNet50   | LIME                   | TBD                                     |
+| **Edge-Case Data** | ResNet50   | Grad-CAM               | TBD                                     |
+| **Edge-Case Data** | ResNet50   | Anchor                 | TBD                                     |
+| **Edge-Case Data** | VGG16      | LIME                   | TBD                                     |
+| **Edge-Case Data** | VGG16      | Grad-CAM               | TBD                                     |
+| **Edge-Case Data** | VGG16      | Anchor                 | TBD                                     | 
+
 
