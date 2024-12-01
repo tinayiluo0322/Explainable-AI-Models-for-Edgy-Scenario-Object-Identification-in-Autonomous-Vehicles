@@ -299,23 +299,51 @@ The car in snow experiment highlights the challenges ResNet50 and VGG16 face in 
 **Key Insights:**  
 This experiment highlights the reliance of both models on shape-based reasoning in snow-obscured scenes, leading to significant misclassification. Among the XAI methods, Anchor provided the most precise explanations, while LIME exposed the fragmented focus of the models, and Grad-CAM offered minimal differentiation. To improve performance in such scenarios, future models must incorporate better contextual reasoning and environmental awareness, enabling them to distinguish objects in complex, snow-covered environments more accurately.
 
-# Conclusion 
+# Conclusion
 
-Final Conclusion
-Both ResNet50 and VGG16 correctly identify broken upside-down road sign, broken cars, motor scooters in fog, mostly because the generally shape and key features of the object (text for road sign and car shape and key features for car and motor scooter) is kept untacked and the environment that the image is captured is good and clear under daylight. However, when the shape of the object is significantly covered or distorted (such as pedestrian in rain with umbrella covering the head and half of the car is covered in snow )and when the picture is dark at night or object is hard to recognize in blurry situation (such as car in fog and at night) and when different objects are mixed together in one image (like car and pedestrian together in one image at night or several pedestrian with the street light), both models has significant difficulties in correctly identifying and classifying objects in the image.
+The results of this study highlight the capabilities and limitations of ResNet50 and VGG16 in identifying objects in edge-case scenarios, with varying performance influenced by environmental conditions and object visibility. 
 
-XAI method conclusion (Grad-Cam the worst, Anchor the best) give me detailed analysis Generate a table
----
+**Model Performance:**  
+Both models performed well in scenarios where the object's general shape and key features were intact, such as broken road signs, broken cars, and motor scooters in fog. In these cases, the models relied on essential features like text for road signs or the overall shape and key details of cars and scooters. However, performance significantly degraded in scenarios where objects were obscured or distorted (e.g., pedestrians in rain with umbrellas covering the head, cars partially covered in snow) or captured under challenging conditions like nighttime, fog, or a cluttered scene with multiple overlapping objects. These scenarios revealed the models’ inability to accurately interpret visual contexts, resulting in significant misclassification.
 
-### Explainability Metrics Benchmark Table  
+**XAI Method Analysis:**  
+The evaluation of LIME, Grad-CAM, and Anchor Explanations exposed clear differences in their interpretability and reliability across the experiments:
 
-| **Dataset**       | **Model**  | **XAI Technique**      | **Explainability Analysis Case Study** |
-|--------------------|------------|------------------------|-----------------------------------------|
-| **Edge-Case Data** | ResNet50   | LIME                   | TBD                                     |
-| **Edge-Case Data** | ResNet50   | Grad-CAM               | TBD                                     |
-| **Edge-Case Data** | ResNet50   | Anchor                 | TBD                                     |
-| **Edge-Case Data** | VGG16      | LIME                   | TBD                                     |
-| **Edge-Case Data** | VGG16      | Grad-CAM               | TBD                                     |
-| **Edge-Case Data** | VGG16      | Anchor                 | TBD                                     | 
+### XAI Method Performance Summary  
 
+| **Aspect**         | **LIME**                                                                                                     | **Grad-CAM**                                                                                     | **Anchor**                                                                                                    |
+|--------------------|------------------------------------------------------------------------------------------------------------|--------------------------------------------------------------------------------------------------|-------------------------------------------------------------------------------------------------------------|
+| **Interpretability** | Local explanations are intuitive but often inconsistent and fragmented, focusing on irrelevant areas.       | Broad focus lacks specificity and provides minimal differentiation between predictions.          | Precise and clear explanations, directly linking features to predictions.                                    |
+| **Strengths**       | Works well in identifying local feature importance; model-agnostic and flexible across domains.             | Efficient and directly tied to CNN feature maps; visually intuitive in highlighting key areas.   | Highly reliable in identifying critical features; intuitive if-then rules for specific predictions.          |
+| **Weaknesses**      | Struggles with nonlinear decision boundaries; inconsistent and oversimplified explanations.                 | Limited to coarse visualizations; fails to provide actionable insights in complex scenarios.      | Coverage is often extremely low, meaning generalizability across instances is limited.                       |
+| **Best Use Cases**   | Useful for analyzing feature importance in relatively simple and well-defined scenarios.                   | Effective for initial visualization of attention in CNNs but lacks depth for nuanced analysis.    | Ideal for understanding critical features driving specific predictions; excels in edge-case scenarios.       |
 
+**Key Insights:**  
+
+1. **LIME**:  
+   LIME provided flexible and localized visualizations, but its interpretations were often inconsistent, focusing on irrelevant areas or failing to explain how similar highlighted features led to drastically different predictions. These limitations were particularly evident in scenarios with multiple overlapping objects or poorly visible scenes, reducing LIME's reliability in edge-case scenarios.
+
+2. **Grad-CAM**:  
+   Grad-CAM consistently highlighted broad regions of the image but lacked differentiation and clarity. For example, in foggy or dark scenarios, it focused on the car and its surrounding areas but failed to explain how specific features contributed to distinct predictions. While efficient, Grad-CAM proved the least useful in providing actionable insights for edge-case analyses.
+
+3. **Anchor**:  
+   Anchor Explanations excelled in providing precise and interpretable insights, directly linking specific features, such as the shape of a scooter or the text on a road sign, to the models’ predictions. However, its low coverage indicated that these explanations were often highly instance-specific, limiting their ability to generalize across similar images. Despite this limitation, Anchor was the most effective method for understanding model decision-making in challenging scenarios.
+
+### Conclusion Table  
+
+| **Scenario**                     | **Model**  | **LIME Evaluation**                                                                                   | **Grad-CAM Evaluation**                                                                        | **Anchor Evaluation**                                                                                                 |
+|----------------------------------|------------|-------------------------------------------------------------------------------------------------------|------------------------------------------------------------------------------------------------|----------------------------------------------------------------------------------------------------------------------|
+| **Broken Road Sign**              | ResNet50   | Highlighted text on the road sign but inconsistently focused on irrelevant areas for other predictions.| Highlighted the road sign uniformly without class-specific insights.                           | Precisely focused on the road sign’s text and shape; high precision but limited coverage.                              |
+|                                  | VGG16      | Similar to ResNet50; inconsistent focus on road sign and irrelevant background.                        | Similar broad focus; minimal differentiation between predictions.                              | Clear focus on the road sign; high precision but low coverage.                                                        |
+| **Broken Car**                    | ResNet50   | Focused on the car’s top and shifted attention to the background for alternative predictions.          | Broad focus on car and bus; little clarity on feature differentiation.                         | Highlighted car features and parts of the bus; high precision, no coverage.                                           |
+|                                  | VGG16      | Focused on similar features as ResNet50; inconsistent for background elements.                        | Scattered focus on the car and bus; lacked meaningful variation between predictions.            | Clear focus on the car and bus; high precision, no coverage.                                                          |
+| **Scooter in Fog**                | ResNet50   | Focused on fragmented parts of the scooter but struggled with consistent explanations across predictions.| Centered on the scooter but lacked variation in focus.                                          | Clear focus on the scooter’s shape and pedestrian; high precision, no coverage.                                       |
+|                                  | VGG16      | Similar fragmented focus to ResNet50; inconsistently highlighted scooter features.                    | Focused on the scooter and pedestrian but failed to clarify the reasoning behind predictions.   | Highlighted scooter and pedestrian with clear rationale; high precision, no coverage.                                 |
+| **Night Pedestrian and Car**      | ResNet50   | Focused on fragmented bright elements like the headlights and background lights; lacked cohesion.      | Broad focus on the headlights and car; minimal differentiation between predictions.             | Precisely highlighted the car’s headlights but with limited generalization.                                           |
+|                                  | VGG16      | Similar fragmented focus to ResNet50; emphasized irrelevant background areas.                         | Focused primarily on the car and background without meaningful variation.                       | Clear focus on headlights and background but limited to the specific instance.                                        |
+| **Car in Snow**                   | ResNet50   | Focused on the car’s front, resembling a bobsleigh, but shifted attention to snow for other predictions.| Broad focus on car and snow; lacked clarity in feature differentiation.                         | Highlighted car and surrounding snow; high precision, no coverage.                                                    |
+|                                  | VGG16      | Focused on the uncovered parts of the car but misinterpreted features as a military aircraft.          | Similar broad focus on the car’s shape and surrounding snow.                                    | Clear focus on car shape and snow features; high precision, minimal coverage.                                         |
+
+### Final Insights  
+
+ResNet50 and VGG16 performed similarly across edge-case scenarios, demonstrating reasonable classification capabilities in clear conditions but significant challenges under occlusions, poor visibility, and overlapping objects. Among the XAI methods, Anchor consistently provided the most precise and interpretable explanations, though its limited coverage underscored its instance-specific nature. LIME offered flexible, localized visualizations but struggled with consistency in complex scenarios. Grad-CAM, while efficient, lacked clarity and differentiation, making it the least effective for edge-case interpretability. Future research should prioritize developing models and XAI methods that better integrate contextual reasoning and enhance generalization to ensure robust performance in real-world conditions.
