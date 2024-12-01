@@ -95,11 +95,15 @@ Anchor stood out as the most precise and interpretable method in this experiment
 
 In summary, while all three XAI methods contributed unique perspectives to model interpretability, Anchor proved to be the most reliable and insightful for this experiment, offering precise and intuitive explanations tied directly to the model's decision-making process. LIME provided flexible but sometimes inconsistent interpretations, and Grad-CAM offered less differentiation and clarity across predictions. These findings underscore the importance of selecting XAI methods based on their strengths and weaknesses to ensure meaningful and actionable insights, particularly in edge-case scenarios like this broken road sign experiment.
 
+**ResNet50 Prediction: Traffic Sign** 
+
 ![ResNet50_LIME_RoadSign](https://github.com/user-attachments/assets/2e720529-d870-4c17-8067-c76b653b228f)
 
 ![ResNet50_Grad_Cam_RoadSign](https://github.com/user-attachments/assets/702d6669-f61d-46aa-974d-68cccb9180fd)
 
 ![ResNet50_Anchor_RoadSign](https://github.com/user-attachments/assets/904b281d-e8bb-46c1-b632-da80a5b4e9aa)
+
+**VGG16 Prediction: Traffic Sign**
 
 ## Collide Broken Car Experiment
 
@@ -273,18 +277,18 @@ The car in snow experiment highlights the challenges ResNet50 and VGG16 face in 
 **Key Insights:**  
 This experiment highlights the reliance of both models on shape-based reasoning in snow-obscured scenes, leading to significant misclassification. Among the XAI methods, Anchor provided the most precise explanations, while LIME exposed the fragmented focus of the models, and Grad-CAM offered minimal differentiation. To improve performance in such scenarios, future models must incorporate better contextual reasoning and environmental awareness, enabling them to distinguish objects in complex, snow-covered environments more accurately.
 
+![R_LIME_SnowCar](https://github.com/user-attachments/assets/90afc4f6-d460-40ec-9674-1d894b40434c)
+
+![R_GradCam_SnowCar](https://github.com/user-attachments/assets/b1fd6601-4f03-4cfa-8c74-1dfbc75f3ef4)
+
+![R_Anchor_SnowCar](https://github.com/user-attachments/assets/7419492f-9263-4a5a-8d62-2a5f6430bc77)
+
 # Conclusion
 
 The results of this study highlight the capabilities and limitations of ResNet50 and VGG16 in identifying objects in edge-case scenarios, with varying performance influenced by environmental conditions and object visibility. 
 
 **Model Performance:**  
 Both models performed well in scenarios where the object's general shape and key features were intact, such as broken road signs, broken cars, and motor scooters in fog. In these cases, the models relied on essential features like text for road signs or the overall shape and key details of cars and scooters. However, performance significantly degraded in scenarios where objects were obscured or distorted (e.g., pedestrians in rain with umbrellas covering the head, cars partially covered in snow) or captured under challenging conditions like nighttime, fog, or a cluttered scene with multiple overlapping objects. These scenarios revealed the models’ inability to accurately interpret visual contexts, resulting in significant misclassification.
-
-![R_LIME_SnowCar](https://github.com/user-attachments/assets/90afc4f6-d460-40ec-9674-1d894b40434c)
-
-![R_GradCam_SnowCar](https://github.com/user-attachments/assets/b1fd6601-4f03-4cfa-8c74-1dfbc75f3ef4)
-
-![R_Anchor_SnowCar](https://github.com/user-attachments/assets/7419492f-9263-4a5a-8d62-2a5f6430bc77)
 
 **XAI Method Analysis:**  
 The evaluation of LIME, Grad-CAM, and Anchor Explanations exposed clear differences in their interpretability and reliability across the experiments:
