@@ -1,4 +1,6 @@
 # Explainable-AI-Models-for-Edgy-Scenario-Object-Identification-in-Autonomous-Vehicles
+## Luopeiwen Yi
+
 # Overview
 
 ---
@@ -49,8 +51,8 @@ To reproduce the experiments and visual outputs, follow these steps:
 
 ### Clone the Repository  
 ```bash
-git clone https://github.com/your-repo-name.git  
-cd your-repo-name  
+git clone https://github.com/tinayiluo0322/Explainable-AI-Models-for-Edgy-Scenario-Object-Identification-in-Autonomous-Vehicles.git
+cd Explainable-AI-Models-for-Edgy-Scenario-Object-Identification-in-Autonomous-Vehicles
 ```
 
 ### Google Colab Notebooks  
@@ -83,7 +85,7 @@ This project’s uniqueness lies in its:
 ---
 
 ## 8. Final Deliverables  
-1. **Slides**: Summarizing the methodology, visual outputs, and insights.  
+1. **Manuscript**: Summarizing the methodology, visual outputs, and insights.  
 2. **Video Presentation**: Explaining the project and key findings.  
 3. **Colab Notebook**: A documented workflow for reproducibility, including data preprocessing, modeling, and explainability visualizations.
 
