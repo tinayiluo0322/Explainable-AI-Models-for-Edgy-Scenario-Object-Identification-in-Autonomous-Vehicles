@@ -172,7 +172,7 @@ Both ResNet50 and VGG16 demonstrated similar weaknesses in handling the foggy sc
 **Key Insights:**  
 This experiment underscores the limitations of ResNet50 and VGG16 in interpreting challenging environments like foggy, low-visibility scenes. Among the XAI methods, Anchor provided the clearest explanations but revealed the models' reliance on narrow, instance-specific reasoning. LIME highlighted inconsistent attention patterns, while Grad-CAM failed to provide meaningful insights due to its broad and scattered focus. To improve performance in such scenarios, future models should prioritize the integration of contextual reasoning and better handling of ambiguous visual cues to enhance both prediction accuracy and interpretability.
 
-### **ResNet50 Prediction: Spotlight** 
+### **ResNet50 Prediction: Fire Engine** 
 
 ![R_LIME_CarFOG](https://github.com/user-attachments/assets/93b91c61-73a0-4707-b4f5-27ba0e464031)
 
@@ -180,7 +180,7 @@ This experiment underscores the limitations of ResNet50 and VGG16 in interpretin
 
 ![R_Anchor_CarFog](https://github.com/user-attachments/assets/656e4d0b-feb4-4bee-a1ea-ae4b6590c2dc)
 
-### **VGG16 Prediction: Snowplow** 
+### **VGG16 Prediction: Traffic Light** 
 
 ![V_LIME_CarFog](https://github.com/user-attachments/assets/ff70f413-2587-46db-b58a-04029ee4ae24)
 
