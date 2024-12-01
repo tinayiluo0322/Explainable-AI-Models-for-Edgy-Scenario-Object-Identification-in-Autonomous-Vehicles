@@ -114,6 +114,13 @@ Anchor stood out as the most precise and interpretable method in this experiment
 
 In summary, while all three XAI methods contributed unique perspectives to model interpretability, Anchor proved to be the most reliable and insightful for this experiment, offering precise and intuitive explanations tied directly to the model's decision-making process. LIME provided flexible but sometimes inconsistent interpretations, and Grad-CAM offered less differentiation and clarity across predictions. These findings underscore the importance of selecting XAI methods based on their strengths and weaknesses to ensure meaningful and actionable insights, particularly in edge-case scenarios like this broken road sign experiment.
 
+<img width="611" alt="Screen Shot 2024-12-01 at 1 53 45 AM" src="https://github.com/user-attachments/assets/c0979f56-c385-4b36-ac20-aa7b7e6982ee">
+
+
+<img width="821" alt="Screen Shot 2024-12-01 at 1 54 08 AM" src="https://github.com/user-attachments/assets/ba707df4-8003-4637-bdf8-214d500155c8">
+
+![ResNet50_Anchor_RoadSign](https://github.com/user-attachments/assets/904b281d-e8bb-46c1-b632-da80a5b4e9aa)
+
 ## Collide Broken Car Experiment
 
 The broken car experiment demonstrates the strengths and weaknesses of ResNet50 and VGG16 in accurately predicting and interpreting a complex image involving a damaged car. ResNet50 correctly identified the object as a "taxicab," while VGG16 labeled it as a "station wagon." Both predictions were reasonable, as they accurately categorized the object as a car, despite contextual distractions such as visible damage and the presence of a background bus.
