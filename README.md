@@ -3,26 +3,20 @@
 
 # Overview
 
-## 1. Research Question  
+## Research Question  
 The primary goal of this project is to evaluate the explainability of AI models for object identification in challenging or edge-case scenarios within the context of autonomous driving. Specifically, this research explores how well pre-trained image classification models—**ResNet50** and **VGG16**—perform under conditions like night driving, rain, snow, fog, and broken traffic signs. It also examines how explainability techniques, including **LIME**, **Grad-CAM**, and **Anchor Explanations**, clarify their predictions.  
 
 In this study, 'object identification' refers to the classification of entire images representing scenes or objects, rather than detecting and localizing objects within the image.  
 
 **Hypothesis**: Edge-case scenarios challenge both model performance and explainability, requiring improved methods to handle uncertainty in real-world conditions.
 
----
-
-## 2. Importance of the Topic  
+## Importance of the Topic  
 Autonomous vehicles rely heavily on object identification systems for safe and effective operation. Poor visibility, adverse weather conditions, or damaged infrastructure can cause failures in these systems. As these conditions pose significant safety risks, this project bridges the gap between performance and transparency by improving the explainability of AI models in these challenging scenarios. The findings could inform safer, more reliable AI for autonomous vehicles.
 
----
-
-## 3. Prior Work in the Field  
+## Prior Work in the Field  
 While significant advances have been made in Explainable AI (XAI) methods such as LIME and Grad-CAM, most research focuses on ideal conditions. Anchor Explanations have been underexplored in object classification tasks but offer unique insights by identifying specific areas or conditions necessary to maintain a prediction. This project addresses a gap by evaluating models in edge-case scenarios, creating a novel dataset to assess explainability in real-world conditions.
 
----
-
-## 4. General Approach  
+## Methodology
 
 1. **Data Collection**  
    - Collect 8 edge-case images from the internet, depicting scenarios like night driving, snow, fog, rain, and broken cars and road signs.  
@@ -36,14 +30,10 @@ While significant advances have been made in Explainable AI (XAI) methods such a
 4. **Visual Output Analysis**  
    - Visualize and interpret explainability results for edge-case images.  
 
----
-
-## 5. Data Sources  
+## Data Sources  
 - **Custom Dataset**: 8 images sourced online, representing edge-case scenarios (e.g., night driving, snow, fog, etc.). Located in [EdgyData](./EdgyData) directory.
 
----
-
-## 6. Instructions to Run the Project  
+## Instructions to Run the Project  
 
 To reproduce the experiments and visual outputs, follow these steps:
 
@@ -72,23 +62,16 @@ cd Explainable-AI-Models-for-Edgy-Scenario-Object-Identification-in-Autonomous-V
    - Follow the instructions in the notebook.  
    - Execute each cell sequentially to preprocess the data, run the model, and generate explainability outputs.  
 
----
-
-## 7. Unique Contributions  
+## Unique Contributions  
 This project’s uniqueness lies in its:  
 1. **Edge-case dataset**: A novel dataset specifically tailored for evaluating object identification in autonomous vehicles.  
 2. **Explainability focus**: Assessing widely used XAI methods (LIME, Grad-CAM, Anchor Explanations) in difficult conditions.  
 3. **Benchmarking robustness**: Providing insights into model transparency under edge-case scenarios, offering a foundation for future research.  
 
----
-
-## 8. Final Deliverables  
+## Final Deliverables  
 1. **Manuscript**: Summarizing the methodology, visual outputs, and insights.  
 2. **Video Presentation**: Explaining the project and key findings.  
 3. **Colab Notebook**: A documented workflow for reproducibility, including data preprocessing, modeling, and explainability visualizations.
-
-
----
 
 ## Summary of XAI Methods for Object Identification  
 
