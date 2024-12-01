@@ -99,8 +99,9 @@ The LIME Image Explainer (Local Interpretable Model-agnostic Explanations) is a 
 | **Local Approximation**  | Approximates the **local decision boundary** of the model for each image   | May lead to **oversimplified explanations**, failing to capture complex model behaviors            |
 | **Bias**                 | Provides **intuitive visual cues** for feature importance in images        | Can be **fooled** or manipulated to highlight **irrelevant regions**, leading to biased explanations |
 
-
 ### Grad-CAM 
+
+[Grad-Cam Documentation] (https://keras.io/examples/vision/grad_cam/)
 
 Grad-CAM (Gradient-weighted Class Activation Mapping) is a visualization technique used to interpret the decisions of convolutional neural networks (CNNs), especially in image classification tasks. Unlike methods such as LIME that approximate the model's behavior using surrogate models, Grad-CAM uses the internal gradients of the model to produce a coarse localization map of the important regions in an image that contributed to the model’s prediction. It achieves this by backpropagating the gradients of the target class score with respect to the feature maps of the final convolutional layer. These gradients are then weighted and aggregated to highlight the regions in the image most relevant to the prediction.
 
@@ -303,7 +304,7 @@ This experiment highlights the reliance of both models on shape-based reasoning 
 Final Conclusion
 Both ResNet50 and VGG16 correctly identify broken upside-down road sign, broken cars, motor scooters in fog, mostly because the generally shape and key features of the object (text for road sign and car shape and key features for car and motor scooter) is kept untacked and the environment that the image is captured is good and clear under daylight. However, when the shape of the object is significantly covered or distorted (such as pedestrian in rain with umbrella covering the head and half of the car is covered in snow )and when the picture is dark at night or object is hard to recognize in blurry situation (such as car in fog and at night) and when different objects are mixed together in one image (like car and pedestrian together in one image at night or several pedestrian with the street light), both models has significant difficulties in correctly identifying and classifying objects in the image.
 
-XAI method conclusion (Grad-Cam the worst, Anchor the best) Generate a table
+XAI method conclusion (Grad-Cam the worst, Anchor the best) give me detailed analysis Generate a table
 ---
 
 ### Explainability Metrics Benchmark Table  
