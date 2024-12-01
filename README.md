@@ -3,8 +3,6 @@
 
 # Overview
 
----
-
 ## 1. Research Question  
 The primary goal of this project is to evaluate the explainability of AI models for object identification in challenging or edge-case scenarios within the context of autonomous driving. Specifically, this research explores how well pre-trained image classification models—**ResNet50** and **VGG16**—perform under conditions like night driving, rain, snow, fog, and broken traffic signs. It also examines how explainability techniques, including **LIME**, **Grad-CAM**, and **Anchor Explanations**, clarify their predictions.  
 
