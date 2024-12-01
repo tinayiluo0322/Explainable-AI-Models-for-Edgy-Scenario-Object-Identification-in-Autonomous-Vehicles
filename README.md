@@ -65,7 +65,7 @@ cd your-repo-name
 
 ### Run Experiments  
 1. **Dataset Upload**:  
-   - The dataset is located in the `datasource` folder within the repository.  
+   - The dataset is located in the `EdgyData` folder within the repository.  
    - Upload the dataset files to the Colab environment when prompted.  
 
 2. **Execute Cells**:  
