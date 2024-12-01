@@ -95,7 +95,7 @@ Anchor stood out as the most precise and interpretable method in this experiment
 
 In summary, while all three XAI methods contributed unique perspectives to model interpretability, Anchor proved to be the most reliable and insightful for this experiment, offering precise and intuitive explanations tied directly to the model's decision-making process. LIME provided flexible but sometimes inconsistent interpretations, and Grad-CAM offered less differentiation and clarity across predictions. These findings underscore the importance of selecting XAI methods based on their strengths and weaknesses to ensure meaningful and actionable insights, particularly in edge-case scenarios like this broken road sign experiment.
 
-**ResNet50 Prediction: Traffic Sign** 
+### **ResNet50 Prediction: Traffic Sign** 
 
 ![ResNet50_LIME_RoadSign](https://github.com/user-attachments/assets/2e720529-d870-4c17-8067-c76b653b228f)
 
@@ -103,7 +103,7 @@ In summary, while all three XAI methods contributed unique perspectives to model
 
 ![ResNet50_Anchor_RoadSign](https://github.com/user-attachments/assets/904b281d-e8bb-46c1-b632-da80a5b4e9aa)
 
-**VGG16 Prediction: Traffic Sign**
+### **VGG16 Prediction: Traffic Sign**
 
 ## Collide Broken Car Experiment
 
