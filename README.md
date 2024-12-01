@@ -190,7 +190,7 @@ This experiment underscores the limitations of ResNet50 and VGG16 in interpretin
 
 ## Scooter in Fog Experiment
 
-The scooter in fog experiment demonstrates that both ResNet50 and VGG16 were able to correctly classify the image of a pedestrian driving a motor scooter (Predicted class: 670). This highlights the models' ability to recognize the concept of a scooter, even under challenging conditions such as fog. However, the interpretability provided by XAI methods revealed varying levels of clarity and utility in understanding the models' decision-making processes.
+The scooter in fog experiment demonstrates that both ResNet50 and VGG16 were able to correctly classify the image of a pedestrian driving a motor scooter. This highlights the models' ability to recognize the concept of a scooter, even under challenging conditions such as fog. However, the interpretability provided by XAI methods revealed varying levels of clarity and utility in understanding the models' decision-making processes.
 
 **XAI Method Comparison:**
 - **LIME:** LIME struggled to provide clear insights for both models. The explanations focused on fragmented, small regions of the image, graying out the majority of the scene. While these regions were consistent across predictions like "scooter," "scuba diver," and "oxygen mask," it remained unclear how such similar areas could result in drastically different predictions. This inconsistency undermined the utility of LIME in explaining the models' reasoning.  
@@ -315,7 +315,7 @@ The complete occlusion of the pedestrian’s head by the umbrella was a critical
 **Overall Insights**:
 ResNet50 and VGG16 demonstrated comparable weaknesses in their predictions, relying heavily on specific visual cues without adequately contextualizing the broader scene. Among the XAI methods, Anchor provided the most precise and interpretable insights, directly linking specific features to predictions but with limited coverage. LIME offered flexible visualizations but struggled with consistency and relevance across predictions. Grad-CAM, while efficient, lacked meaningful focus and differentiation, contributing the least to understanding the models' decision processes.
 
-### **ResNet50 Prediction: Unbrella** 
+### **ResNet50 Prediction: Umbrella** 
 
 ![R_LIME_Unbrella_Bro](https://github.com/user-attachments/assets/2be6ae3c-a4e5-4f10-8e58-6d764f058a20)
 
