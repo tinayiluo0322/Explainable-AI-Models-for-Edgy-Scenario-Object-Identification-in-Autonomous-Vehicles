@@ -114,10 +114,9 @@ Anchor stood out as the most precise and interpretable method in this experiment
 
 In summary, while all three XAI methods contributed unique perspectives to model interpretability, Anchor proved to be the most reliable and insightful for this experiment, offering precise and intuitive explanations tied directly to the model's decision-making process. LIME provided flexible but sometimes inconsistent interpretations, and Grad-CAM offered less differentiation and clarity across predictions. These findings underscore the importance of selecting XAI methods based on their strengths and weaknesses to ensure meaningful and actionable insights, particularly in edge-case scenarios like this broken road sign experiment.
 
-<img width="611" alt="Screen Shot 2024-12-01 at 1 53 45 AM" src="https://github.com/user-attachments/assets/c0979f56-c385-4b36-ac20-aa7b7e6982ee">
+![ResNet50_LIME_RoadSign](https://github.com/user-attachments/assets/2e720529-d870-4c17-8067-c76b653b228f)
 
-
-<img width="821" alt="Screen Shot 2024-12-01 at 1 54 08 AM" src="https://github.com/user-attachments/assets/ba707df4-8003-4637-bdf8-214d500155c8">
+![ResNet50_Grad_Cam_RoadSign](https://github.com/user-attachments/assets/702d6669-f61d-46aa-974d-68cccb9180fd)
 
 ![ResNet50_Anchor_RoadSign](https://github.com/user-attachments/assets/904b281d-e8bb-46c1-b632-da80a5b4e9aa)
 
@@ -145,6 +144,12 @@ ResNet50 and VGG16 showed comparable performance in predicting the car's class, 
 **Key Insights:**  
 The broken car experiment highlights the importance of using multiple XAI methods to uncover different facets of model interpretability. While LIME offered localized feature importance, its inconsistency across predictions revealed the models' biases toward irrelevant features. Grad-CAM’s broad focus lacked specificity, making it less useful for detailed analysis. Anchor provided the most precise insights, directly linking features to predictions, but its low coverage emphasized the need for improved generalization. Overall, both models demonstrated strong object recognition capabilities but require enhanced contextual reasoning to handle complex scenes more effectively.
 
+![R_LIME_BrokenCAR](https://github.com/user-attachments/assets/62e4d43e-350c-4eef-90fc-786ed510a48e)
+
+![R_GradCam_BrokenCar](https://github.com/user-attachments/assets/4fff01b9-5e18-4fa0-b957-662f4c16534d)
+
+![R_Anchor_Broken_Car](https://github.com/user-attachments/assets/b50ff92f-3c74-4355-aabb-b3482d605ee4)
+
 ## Car in Fog Experiment
 
 The car in fog experiment demonstrates the challenges ResNet50 and VGG16 face in interpreting visually ambiguous scenes with minimal contextual information. ResNet50 predicted "fire engine," likely due to its focus on the car's bright red backlight, while VGG16 predicted "traffic light," mistaking the same feature for the lights typically associated with a traffic signal. Both models relied heavily on the brightest element in the image, failing to consider the overall structure of the car or the foggy environment, leading to misclassification.
@@ -166,6 +171,12 @@ Both ResNet50 and VGG16 demonstrated similar weaknesses in handling the foggy sc
 **Key Insights:**  
 This experiment underscores the limitations of ResNet50 and VGG16 in interpreting challenging environments like foggy, low-visibility scenes. Among the XAI methods, Anchor provided the clearest explanations but revealed the models' reliance on narrow, instance-specific reasoning. LIME highlighted inconsistent attention patterns, while Grad-CAM failed to provide meaningful insights due to its broad and scattered focus. To improve performance in such scenarios, future models should prioritize the integration of contextual reasoning and better handling of ambiguous visual cues to enhance both prediction accuracy and interpretability.
 
+![R_LIME_CarFOG](https://github.com/user-attachments/assets/93b91c61-73a0-4707-b4f5-27ba0e464031)
+
+![R_GradCam_CarFog](https://github.com/user-attachments/assets/58a4a3df-068c-46bf-8f60-949ce9dadd7c)
+
+![R_Anchor_CarFog](https://github.com/user-attachments/assets/656e4d0b-feb4-4bee-a1ea-ae4b6590c2dc)
+
 ## Scooter in Fog Experiment
 
 The scooter in fog experiment demonstrates that both ResNet50 and VGG16 were able to correctly classify the image of a pedestrian driving a motor scooter (Predicted class: 670). This highlights the models' ability to recognize the concept of a scooter, even under challenging conditions such as fog. However, the interpretability provided by XAI methods revealed varying levels of clarity and utility in understanding the models' decision-making processes.
@@ -177,6 +188,12 @@ The scooter in fog experiment demonstrates that both ResNet50 and VGG16 were abl
 
 **Key Insights:**  
 This experiment underscores the strengths and limitations of ResNet50 and VGG16 in interpreting challenging scenes. While both models successfully recognized the "scooter," XAI methods revealed gaps in their reasoning and focus. Anchor provided the clearest and most intuitive explanations, though its lack of generalization highlights the need for models to better integrate context and environmental cues for broader applicability. Improving interpretability and consistency in reasoning across predictions remains a crucial area for future development in model design and XAI methods.
+
+![R_LIME_Motor_Scooter](https://github.com/user-attachments/assets/32ad5077-aeb4-4e44-9f7c-ee239caddc47)
+
+![R_GradCam_MotorScooter](https://github.com/user-attachments/assets/8270cffa-1e4a-4773-abf3-d90c816876cd)
+
+![R_Anchor_Scooter](https://github.com/user-attachments/assets/4af83502-d11c-4506-849c-f80ea24f13c2)
 
 ## Night Pedestrian and Car Experiment
 
@@ -202,6 +219,12 @@ Both ResNet50 and VGG16 struggled to interpret the scene correctly, but their ap
 **Key Insights:**  
 This experiment underscores the limitations of ResNet50 and VGG16 in understanding contextually rich but visually challenging environments, such as nighttime scenes with extreme contrasts. Among the XAI methods, Anchor provided the most reliable and precise explanations, revealing the models' reliance on specific features but also their lack of generalizability. LIME exposed the fragmented and inconsistent focus of both models, while Grad-CAM struggled to provide meaningful insights due to its broad, undifferentiated attention. To improve performance in such scenarios, future models should incorporate mechanisms to better integrate global and local features, ensuring a more holistic understanding of complex scenes.
 
+![R_LIME_Night_PC](https://github.com/user-attachments/assets/673a7471-9254-4534-8a04-8916c01acb61)
+
+![R_GradCam_PC](https://github.com/user-attachments/assets/d091fd86-d19c-41b1-83df-4faeb072cf6c)
+
+![R_Anchor_PC](https://github.com/user-attachments/assets/f545090d-8bbc-48ed-81c9-8b8f86e6ef62)
+
 ## Night Raining Pedestrian Experiment
 
 The night raining pedestrian experiment highlights the challenges both ResNet50 and VGG16 face in correctly interpreting complex nighttime scenes with multiple overlapping elements, such as pedestrians with umbrellas, traffic lights, and other contextual features. Both models incorrectly predicted the label "carousel," likely due to the bright lights and patterns in the scene, which misled the models into associating the image with features of a carousel.
@@ -226,6 +249,12 @@ ResNet50 and VGG16 displayed similar interpretability and prediction performance
 **Key Insights:**  
 This experiment underscores the limitations of ResNet50 and VGG16 in handling complex, multi-object nighttime scenes, where contextual reasoning is critical. Among the XAI methods, Anchor provided the most precise explanations, but its low coverage revealed a lack of generalization. LIME exposed the models' inconsistent focus, while Grad-CAM offered limited interpretability, with VGG16 performing slightly better than ResNet50. Future improvements should focus on enhancing models' ability to prioritize meaningful features and context in challenging visual environments.
 
+![R_LIME_Night_Rain](https://github.com/user-attachments/assets/0a4cf627-590c-4eac-af62-dac13c178eb1)
+
+![R_GradCam_Night_Rain](https://github.com/user-attachments/assets/1367c6e1-361a-4cfa-837a-4a500bc9fa2f)
+
+![R_Anchor_Night_Rain](https://github.com/user-attachments/assets/df3593a3-8d6d-4eaf-8ecc-4e10dd052a15)
+
 ## Raining Pedestrian Experiment
 
 The raining pedestrian experiment highlights the challenges both ResNet50 and VGG16 face in accurately identifying the pedestrian amidst a complex scene. In this case, the pedestrian's head was completely covered by the umbrella, leaving only the clothing and the umbrella visible. ResNet50 incorrectly predicted "umbrella," focusing on visual patterns resembling an umbrella, while VGG16 misclassified the image as "kimono," likely influenced by the textures and patterns in the clothing and umbrella. These misclassifications underscore limitations in both models’ ability to contextualize and distinguish visually similar elements.
@@ -245,6 +274,12 @@ The complete occlusion of the pedestrian’s head by the umbrella was a critical
 **Overall Insights**:
 ResNet50 and VGG16 demonstrated comparable weaknesses in their predictions, relying heavily on specific visual cues without adequately contextualizing the broader scene. Among the XAI methods, Anchor provided the most precise and interpretable insights, directly linking specific features to predictions but with limited coverage. LIME offered flexible visualizations but struggled with consistency and relevance across predictions. Grad-CAM, while efficient, lacked meaningful focus and differentiation, contributing the least to understanding the models' decision processes.
 
+![R_LIME_Unbrella_Bro](https://github.com/user-attachments/assets/2be6ae3c-a4e5-4f10-8e58-6d764f058a20)
+
+![R_GradCam_Unbrella_Bro](https://github.com/user-attachments/assets/b591402c-1523-4b3d-842a-7b92348368ed)
+
+![R_Anchor_Unbrella_Bro](https://github.com/user-attachments/assets/fb07f78e-7da3-45c5-b7fe-14c48feb492e)
+
 ## Car in Snow Experiment
 
 The car in snow experiment highlights the challenges ResNet50 and VGG16 face in accurately interpreting snow-covered scenes, where object shapes and surrounding snow create visual ambiguities. ResNet50 predicted "bobsleigh," likely due to its focus on the car's snow-covered front, which resembles a bobsleigh, while VGG16 predicted "military aircraft," associating the car's elongated shape and uncovered features with the silhouette of a warplane. Both models struggled to recognize the car in its snow-obscured state, instead relying on shape-based reasoning that led to misclassification.
@@ -263,6 +298,12 @@ The results of this study highlight the capabilities and limitations of ResNet50
 
 **Model Performance:**  
 Both models performed well in scenarios where the object's general shape and key features were intact, such as broken road signs, broken cars, and motor scooters in fog. In these cases, the models relied on essential features like text for road signs or the overall shape and key details of cars and scooters. However, performance significantly degraded in scenarios where objects were obscured or distorted (e.g., pedestrians in rain with umbrellas covering the head, cars partially covered in snow) or captured under challenging conditions like nighttime, fog, or a cluttered scene with multiple overlapping objects. These scenarios revealed the models’ inability to accurately interpret visual contexts, resulting in significant misclassification.
+
+![R_LIME_SnowCar](https://github.com/user-attachments/assets/90afc4f6-d460-40ec-9674-1d894b40434c)
+
+![R_GradCam_SnowCar](https://github.com/user-attachments/assets/b1fd6601-4f03-4cfa-8c74-1dfbc75f3ef4)
+
+![R_Anchor_SnowCar](https://github.com/user-attachments/assets/7419492f-9263-4a5a-8d62-2a5f6430bc77)
 
 **XAI Method Analysis:**  
 The evaluation of LIME, Grad-CAM, and Anchor Explanations exposed clear differences in their interpretability and reliability across the experiments:
