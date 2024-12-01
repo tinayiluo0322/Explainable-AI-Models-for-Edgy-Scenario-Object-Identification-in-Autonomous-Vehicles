@@ -41,7 +41,7 @@ While significant advances have been made in Explainable AI (XAI) methods such a
 ---
 
 ## 5. Data Sources  
-- **Custom Dataset**: 8 images sourced online, representing edge-case scenarios (e.g., night driving, snow, fog, etc.).
+- **Custom Dataset**: 8 images sourced online, representing edge-case scenarios (e.g., night driving, snow, fog, etc.). Located in [EdgyData](./EdgyData) directory.
 
 ---
 
