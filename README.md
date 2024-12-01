@@ -43,7 +43,38 @@ While significant advances have been made in Explainable AI (XAI) methods such a
 
 ---
 
-## 6. Unique Contributions  
+## 6. Instructions to Run the Project  
+
+To reproduce the experiments and visual outputs, follow these steps:
+
+### Clone the Repository  
+```bash
+git clone https://github.com/your-repo-name.git  
+cd your-repo-name  
+```
+
+### Google Colab Notebooks  
+- Each experiment (e.g., **Car in Fog**, **Night Pedestrian**) is documented in separate **Google Colab notebooks** included in the repository.  
+- Open the relevant notebook for the specific experiment you wish to run.  
+- The notebooks are well-commented and include all necessary steps, from loading the dataset to generating explainability visualizations.  
+
+### Dependencies  
+- Ensure you have the required dependencies installed.  
+  - Dependencies are listed in the Colab notebooks, and you can install them using the provided commands within the notebook.  
+  - Alternatively, install them using a `requirements.txt` file.  
+
+### Run Experiments  
+1. **Dataset Upload**:  
+   - The dataset is located in the `datasource` folder within the repository.  
+   - Upload the dataset files to the Colab environment when prompted.  
+
+2. **Execute Cells**:  
+   - Follow the instructions in the notebook.  
+   - Execute each cell sequentially to preprocess the data, run the model, and generate explainability outputs.  
+
+---
+
+## 7. Unique Contributions  
 This project’s uniqueness lies in its:  
 1. **Edge-case dataset**: A novel dataset specifically tailored for evaluating object identification in autonomous vehicles.  
 2. **Explainability focus**: Assessing widely used XAI methods (LIME, Grad-CAM, Anchor Explanations) in difficult conditions.  
@@ -51,7 +82,7 @@ This project’s uniqueness lies in its:
 
 ---
 
-## 7. Final Deliverables  
+## 8. Final Deliverables  
 1. **Slides**: Summarizing the methodology, visual outputs, and insights.  
 2. **Video Presentation**: Explaining the project and key findings.  
 3. **Colab Notebook**: A documented workflow for reproducibility, including data preprocessing, modeling, and explainability visualizations.
