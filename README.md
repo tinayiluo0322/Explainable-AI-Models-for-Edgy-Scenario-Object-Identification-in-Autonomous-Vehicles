@@ -19,7 +19,7 @@ While significant advances have been made in Explainable AI (XAI) methods such a
 ## Methodology
 
 1. **Data Collection**  
-   - Collect 8 edge-case images from the internet, depicting scenarios like night driving, snow, fog, rain, and broken cars and road signs.  
+   - Collect 8 edge-case images depicting scenarios like night driving, snow, fog, rain, and broken cars and road signs.  
 
 2. **Modeling**  
    - Use pre-trained **ResNet50** and **VGG16** for image classification.  
@@ -31,7 +31,7 @@ While significant advances have been made in Explainable AI (XAI) methods such a
    - Visualize and interpret explainability results for edge-case images.  
 
 ## Data Sources  
-- **Custom Dataset**: 8 images sourced online, representing edge-case scenarios (e.g., night driving, snow, fog, etc.). Located in [EdgyData](./EdgyData) directory.
+- **Custom Dataset**: 8 images representing edge-case scenarios (e.g., night driving, snow, fog, etc.). Located in [EdgyData](./EdgyData) directory.
 
 ## Instructions to Run the Project  
 
@@ -389,7 +389,7 @@ The evaluation of LIME, Grad-CAM, and Anchor Explanations exposed clear differen
 3. **Anchor**:  
    Anchor Explanations excelled in providing precise and interpretable insights, directly linking specific features, such as the shape of a scooter or the text on a road sign, to the models’ predictions. However, its low coverage indicated that these explanations were often highly instance-specific, limiting their ability to generalize across similar images. Despite this limitation, Anchor was the most effective method for understanding model decision-making in challenging scenarios.
 
-### Conclusion Table  
+### Experiment Analysis Conclusion Table  
 
 | **Scenario**                     | **Model**  | **Prediction**            | **LIME Evaluation**                                                                                   | **Grad-CAM Evaluation**                                                                        | **Anchor Evaluation**                                                                                                 |
 |----------------------------------|------------|---------------------------|-------------------------------------------------------------------------------------------------------|------------------------------------------------------------------------------------------------|----------------------------------------------------------------------------------------------------------------------|
