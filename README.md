@@ -323,7 +323,7 @@ ResNet50 and VGG16 demonstrated comparable weaknesses in their predictions, rely
 
 ![R_Anchor_Unbrella_Bro](https://github.com/user-attachments/assets/fb07f78e-7da3-45c5-b7fe-14c48feb492e)
 
-### **ResNet50 Prediction: Kimono** 
+### **VGG16 Prediction: Kimono** 
 
 ![V_LIME_Unbrella_Bro](https://github.com/user-attachments/assets/94db8199-c72a-40d6-a11f-5062a255e4a8)
 
