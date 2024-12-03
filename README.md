@@ -2,7 +2,7 @@
 ## Luopeiwen Yi
 
 ## Final Deliverables  
-1. (**Manuscript**)[https://docs.google.com/document/d/1cGvG7pzimc6laThIcqeDzGvxZ9ad5zJsqrgYlWTALWE/edit?usp=sharing]: Summarizing the research deisgn, methodology, visual outputs, and main results/conclusions.  
+1. [**Manuscript**](https://docs.google.com/document/d/1cGvG7pzimc6laThIcqeDzGvxZ9ad5zJsqrgYlWTALWE/edit?usp=sharing): Summarizing the research deisgn, methodology, visual outputs, and main results/conclusions.  
 2. **Video Presentation**: Pitch explaining the motivation of the project and key insights.  
 3. **Colab Notebook**: A documented workflow for reproducibility, including data preprocessing, modeling, and explainability visualizations.
    
