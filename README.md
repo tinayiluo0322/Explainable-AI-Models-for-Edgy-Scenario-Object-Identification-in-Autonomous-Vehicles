@@ -1,6 +1,11 @@
 # Explainable-AI-Models-for-Edgy-Scenario-Object-Identification-in-Autonomous-Vehicles
 ## Luopeiwen Yi
 
+## Final Deliverables  
+1. (**Manuscript**)[https://docs.google.com/document/d/1cGvG7pzimc6laThIcqeDzGvxZ9ad5zJsqrgYlWTALWE/edit?usp=sharing]: Summarizing the research deisgn, methodology, visual outputs, and main results/conclusions.  
+2. **Video Presentation**: Pitch explaining the motivation of the project and key insights.  
+3. **Colab Notebook**: A documented workflow for reproducibility, including data preprocessing, modeling, and explainability visualizations.
+   
 # Overview
 
 ## Research Question  
@@ -67,11 +72,6 @@ This project’s uniqueness lies in its:
 1. **Edge-case dataset**: A novel dataset specifically tailored for evaluating object identification in autonomous vehicles.  
 2. **Explainability focus**: Assessing widely used XAI methods (LIME, Grad-CAM, Anchor Explanations) in difficult conditions.  
 3. **Benchmarking robustness**: Providing insights into model transparency under edge-case scenarios, offering a foundation for future research.  
-
-## Final Deliverables  
-1. **Manuscript**: Summarizing the methodology, visual outputs, and insights.  
-2. **Video Presentation**: Explaining the project and key findings.  
-3. **Colab Notebook**: A documented workflow for reproducibility, including data preprocessing, modeling, and explainability visualizations.
 
 ## Summary of XAI Methods for Object Identification  
 
