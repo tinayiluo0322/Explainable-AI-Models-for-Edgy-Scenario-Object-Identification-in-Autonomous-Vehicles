@@ -9,7 +9,7 @@
 # Overview
 
 ## Research Question  
-The primary goal of this project is to evaluate the predictive performance and explainability of AI models for object identification in challenging or edge-case scenarios within the context of autonomous driving. Specifically, this research explores how well pre-trained image classification models—**ResNet50** and **VGG16**—perform under conditions like night driving, rain, snow, fog, and broken infrastructures. It also examines how explainability techniques, including **LIME**, **Grad-CAM**, and **Anchor Explanations**, clarify their predictions.  
+The primary goal of this project is to evaluate the predictive performance and explainability of AI models for object identification in challenging or edge-case scenarios within the context of autonomous driving. Specifically, this research explores how well pre-trained image classification models—**ResNet50** and **VGG16**—perform under conditions like night driving, rain, snow, fog, and broken infrastructures. It also examines how explainability techniques, including **LIME**, **Grad-CAM**, and **Anchors Explanations**, clarify their predictions.  
 
 In this study, 'object identification' refers to the classification of entire images representing scenes or objects, rather than detecting and localizing objects within the image.  
 
@@ -19,7 +19,7 @@ In this study, 'object identification' refers to the classification of entire im
 Autonomous vehicles rely heavily on object identification systems for safe and effective operation. Poor visibility, adverse weather conditions, or damaged infrastructure can cause failures in these systems. As these conditions pose significant safety risks, this project bridges the gap between performance and transparency by improving the explainability of AI models in these challenging scenarios. The findings could inform safer, more reliable AI for autonomous vehicles.
 
 ## Prior Work in the Field  
-While significant advances have been made in Explainable AI (XAI) methods such as LIME and Grad-CAM, most research focuses on ideal conditions. Anchor Explanations have been underexplored in object classification tasks but offer unique insights by identifying specific areas or conditions necessary to maintain a prediction. This project addresses a gap by evaluating models in edge-case scenarios, creating a novel dataset to assess explainability in real-world conditions.
+While significant advances have been made in Explainable AI (XAI) methods such as LIME and Grad-CAM, most research focuses on ideal conditions. Anchors Explanations have been underexplored in object classification tasks but offer unique insights by identifying specific areas or conditions necessary to maintain a prediction. This project addresses a gap by evaluating models in edge-case scenarios, creating a novel dataset to assess explainability in real-world conditions.
 
 ## Methodology
 
@@ -30,7 +30,7 @@ While significant advances have been made in Explainable AI (XAI) methods such a
    - Use pre-trained **ResNet50** and **VGG16** for image classification.  
 
 3. **Explainability Evaluation**  
-   - Apply **LIME**, **Grad-CAM**, and **Anchor Explanations** to understand why and how the models make decisions.  
+   - Apply **LIME**, **Grad-CAM**, and **Anchors Explanations** to understand why and how the models make decisions.  
 
 4. **Visual Output Analysis**  
    - Visualize and interpret explainability results for edge-case images.  
@@ -79,7 +79,7 @@ This project’s uniqueness lies in its:
 |-----------------------|-------------------------------------------------------------------------------------------|------------------------------------------------------------------------------------------------------------------------------|---------------------------------------------------------------------------------------------------------------------|
 | **LIME**             | Perturbs input data and observes changes in predictions to build local surrogate models.  | Highlights areas in an image (e.g., superpixels) critical to the model's decision.                                           | Overlay of superpixels showing important areas for object classification.                                          |
 | **Grad-CAM**         | Uses gradients of the model's output with respect to the final convolutional layer.       | Identifies important pixel regions contributing to the model's classification.                                               | Heatmap superimposed on the original image, with warm colors indicating important regions.                         |
-| **Anchor**            | Constructs rules (anchors) that specify conditions sufficient for a prediction.           | Identifies the specific parts of an image or conditions that ensure the model's classification remains consistent.           | Highlighted areas (anchors) showing conditions that strongly influenced the model's decision.                      |
+| **Anchors**            | Constructs rules (anchors) that specify conditions sufficient for a prediction.           | Identifies the specific parts of an image or conditions that ensure the model's classification remains consistent.           | Highlighted areas (anchors) showing conditions that strongly influenced the model's decision.                      |
 
 # Comparative Analysis of ResNet50 and VGG16 with XAI Methods for Edgy Dataset
 
@@ -371,7 +371,7 @@ The evaluation of LIME, Grad-CAM, and Anchor Explanations exposed clear differen
 
 ### XAI Method Performance Summary  
 
-| **Aspect**         | **LIME**                                                                                                     | **Grad-CAM**                                                                                     | **Anchor**                                                                                                    |
+| **Aspect**         | **LIME**                                                                                                     | **Grad-CAM**                                                                                     | **Anchors**                                                                                                    |
 |--------------------|------------------------------------------------------------------------------------------------------------|--------------------------------------------------------------------------------------------------|-------------------------------------------------------------------------------------------------------------|
 | **Interpretability** | Local explanations are intuitive but often inconsistent and fragmented, focusing on irrelevant areas.       | Broad focus lacks specificity and provides minimal differentiation between predictions.          | Precise and clear explanations, directly linking features to predictions.                                    |
 | **Strengths**       | Works well in identifying local feature importance; model-agnostic and flexible across domains.             | Efficient and directly tied to CNN feature maps; visually intuitive in highlighting key areas.   | Highly reliable in identifying critical features; intuitive if-then rules for specific predictions.          |
@@ -386,12 +386,12 @@ The evaluation of LIME, Grad-CAM, and Anchor Explanations exposed clear differen
 2. **Grad-CAM**:  
    Grad-CAM consistently highlighted broad regions of the image but lacked differentiation and clarity. For example, in foggy or dark scenarios, it focused on the car and its surrounding areas but failed to explain how specific features contributed to distinct predictions. While efficient, Grad-CAM proved the least useful in providing actionable insights for edge-case analyses.
 
-3. **Anchor**:  
+3. **Anchors**:  
    Anchor Explanations excelled in providing precise and interpretable insights, directly linking specific features, such as the shape of a scooter or the text on a road sign, to the models’ predictions. However, its low coverage indicated that these explanations were often highly instance-specific, limiting their ability to generalize across similar images. Despite this limitation, Anchor was the most effective method for understanding model decision-making in challenging scenarios.
 
 ### Experiment Analysis Conclusion Table  
 
-| **Scenario**                     | **Model**  | **Prediction**            | **LIME Evaluation**                                                                                   | **Grad-CAM Evaluation**                                                                        | **Anchor Evaluation**                                                                                                 |
+| **Scenario**                     | **Model**  | **Prediction**            | **LIME Evaluation**                                                                                   | **Grad-CAM Evaluation**                                                                        | **Anchors Evaluation**                                                                                                 |
 |----------------------------------|------------|---------------------------|-------------------------------------------------------------------------------------------------------|------------------------------------------------------------------------------------------------|----------------------------------------------------------------------------------------------------------------------|
 | **Broken Road Sign**              | ResNet50   | Traffic Sign              | Highlighted text on the road sign but inconsistently focused on irrelevant areas for other predictions.| Highlighted the road sign uniformly without class-specific insights.                           | Precisely focused on the road sign’s text and shape; high precision (1.00) but limited coverage (0.50).                |
 |                                  | VGG16      | Traffic Sign              | Similar to ResNet50; inconsistent focus on road sign and irrelevant background.                        | Similar broad focus; minimal differentiation between predictions.                              | Clear focus on the road sign; high precision (1.00) but low coverage (0.50).                                         |
